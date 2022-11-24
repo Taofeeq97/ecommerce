@@ -1,0 +1,11 @@
+{% autoescape off %}
+
+Hello {{user.first_name}}
+
+Please click on below link to confirm your shopwella account registration
+http://{{domain}}{% url 'activate' uidb64=uid token=token %}
+
+If you did not initiate this registration, please ignore this mail
+
+{% endautoescape %}
+
