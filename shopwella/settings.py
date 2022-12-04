@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'accounts',
     'store',
     'carts',
+    'orders',
 ]
 
 MIDDLEWARE = [
@@ -142,13 +143,13 @@ MESSAGE_TAGS ={
     messages.ERROR: 'danger',
 }
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST='smtp.gmail.com'
-EMAIL_PORT=587
-EMAIL_HOST_USER='otutaofeeqi@gmail.com'
-EMAIL_HOST_PASSWORD='glkasnlvuavgylsz'
-EMAIL_USE_TLS = True
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'otutaofeeqi@gmail.com'
+EMAIL_HOST_PASSWORD = 'tazpblwlmpmnuuhl'
+EMAIL_USE_TLS = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
