@@ -31,7 +31,6 @@ class Order(models.Model):
     phone = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
     address_1 = models.CharField(max_length=100)
-    address_2 = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
     town = models.CharField(max_length=100)
     order_note = models.CharField(max_length=100)
@@ -43,6 +42,9 @@ class Order(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def full_name(self):
+        return f'{self.first_name} {self.last_name}'
+
     def __str__(self):
         return self.first_name
 
@@ -51,9 +53,7 @@ class OrderProduct(models.Model):
     payment = models.ForeignKey(Payment, on_delete=models.SET_NULL, blank=True, null=True)
     user = models.ForeignKey(Account, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    variation = models.ForeignKey(Variation, on_delete=models.CASCADE)
-    colour = models.CharField(max_length=100)
-    size = models.CharField(max_length=100)
+    variations=models.ManyToManyField(Variation, blank=True)
     quantity = models.IntegerField()
     product_price = models.FloatField()
     ordered = models.BooleanField(default=False)
